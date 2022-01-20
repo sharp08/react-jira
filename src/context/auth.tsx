@@ -9,7 +9,12 @@ export interface AuthForm {
 
 // 这里的泛型决定 AuthContext.Provider 中的 value 属性，Promise<T> 表示返回一个 Promise，其值为 T
 const AuthContext = createContext<
-  { login: (form: AuthForm) => Promise<void> } | undefined
+  | {
+      user: string | null;
+      login: (form: AuthForm) => Promise<void>;
+      register: (form: AuthForm) => Promise<void>;
+    }
+  | undefined
 >(undefined);
 AuthContext.displayName = "AuthContext";
 
@@ -21,8 +26,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     apis.login(form).then((user) => {
       console.log(user);
     });
+  const register = (form: AuthForm) =>
+    apis.register(form).then((res) => {
+      console.log(res);
+    });
 
-  return <AuthContext.Provider children={children} value={{ login }} />;
+  return (
+    <AuthContext.Provider
+      children={children}
+      value={{ login, register, user }}
+    />
+  );
 };
 
 // hook

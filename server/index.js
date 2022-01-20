@@ -1,8 +1,12 @@
 const express = require("express");
+const morgan = require("morgan"); //  日志输出
 const cors = require("cors"); // 处理跨域
 
 const app = express();
 const PORT = 3333;
+
+// 日志
+app.use(morgan("dev"));
 
 // 处理前端请求体
 app.use(express.json()); //  json 方式
@@ -29,7 +33,6 @@ const corsConfig = {
 app.use(cors(corsConfig));
 
 app.get("/get", (req, res) => {
-  console.log(`get 请求参数：`, req.query);
   res.json({
     code: 200,
     data: new Date(),
@@ -37,14 +40,12 @@ app.get("/get", (req, res) => {
 });
 
 app.post("/post", (req, res) => {
-  console.log(`post 请求参数：${JSON.stringify(req.body)}`);
   res.json({
     code: 200,
     data: new Date(),
   });
 });
 app.post("/login", (req, res) => {
-  console.log(`post 请求参数：${JSON.stringify(req.body)}`);
   res.json({
     code: 200,
     data: new Date(),

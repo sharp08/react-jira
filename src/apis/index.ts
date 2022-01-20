@@ -1,4 +1,5 @@
 import { AuthForm } from "../context/auth";
+import { http } from "../utils/http";
 
 class API {
   login(form: AuthForm) {
@@ -10,9 +11,10 @@ class API {
     });
   }
 
-  register() {
-    fetch("http://localhost:3333/get?a=1&b=2", {
-      method: "GET",
+  register(form: AuthForm) {
+    return http("http://localhost:3333/get", {
+      data: { a: 1, b: 2 },
+      token: "awefawefac",
     });
   }
 }

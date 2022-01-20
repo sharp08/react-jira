@@ -1,12 +1,11 @@
 import { MouseEvent } from "react";
-import apis from "../../apis";
 import { useAuth } from "../../context/auth";
 
 export const PageLogin = () => {
-  const { login } = useAuth();
+  const { login, register, user } = useAuth();
   const aaa = (e: MouseEvent<HTMLElement>) => {
-    // apis.register();
-    login({ username: "aaa", password: "bbb" });
+    // login({ username: "aaa", password: "bbb" });
+    register({ username: "aaa", password: "bbb" });
   };
 
   return (

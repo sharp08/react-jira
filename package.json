@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
+    "@types/qs": "^6.9.7",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -50,6 +52,7 @@
     "husky": "^7.0.4",
     "json-server": "^0.17.0",
     "lint-staged": "^12.1.7",
+    "morgan": "^1.10.0",
     "prettier": "2.5.1"
   },
   "lint-staged": {
