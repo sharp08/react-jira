@@ -1,7 +1,7 @@
 import { MouseEvent } from "react";
-import { useAuth } from "../../context/auth";
+import { useAuth } from "../context/auth";
 
-export const PageLogin = () => {
+export const LoginScreen = () => {
   const { login, register, user } = useAuth();
   const aaa = (e: MouseEvent<HTMLElement>) => {
     // login({ username: "aaa", password: "bbb" });
@@ -20,7 +20,6 @@ export const PageLogin = () => {
       </div>
       <div>
         <button onClick={aaa}>登录</button>
-        <button onClick={aaa}>注册</button>
       </div>
     </div>
   );

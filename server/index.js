@@ -2,6 +2,9 @@ const express = require("express");
 const morgan = require("morgan"); //  日志输出
 const cors = require("cors"); // 处理跨域
 
+const apiProjects = require("./projects");
+const apiUsers = require("./users");
+
 const app = express();
 const PORT = 3333;
 
@@ -32,26 +35,11 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 
-app.get("/get", (req, res) => {
-  res.json({
-    code: 200,
-    data: new Date(),
-  });
-});
-
-app.post("/post", (req, res) => {
-  res.json({
-    code: 200,
-    data: new Date(),
-  });
-});
-app.post("/login", (req, res) => {
-  res.json({
-    code: 200,
-    data: new Date(),
-  });
-});
+apiProjects(app);
+apiUsers(app);
 
 app.listen(PORT, () => {
   console.log(`api 服务已启动 http://localhost:${PORT}`);
 });
+
+module.exports = app;
