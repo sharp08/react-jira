@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan"); //  日志输出
 const cors = require("cors"); // 处理跨域
 
+const apiLogin = require("./login");
 const apiProjects = require("./projects");
 const apiUsers = require("./users");
 
@@ -35,6 +36,7 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 
+apiLogin(app);
 apiProjects(app);
 apiUsers(app);
 
